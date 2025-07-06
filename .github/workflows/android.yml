@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,6 +20,9 @@ jobs:
         distribution: 'temurin'
         java-version: 17
 
+    - name: Show Java version
+      run: java -version
+
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
 
@@ -30,7 +32,6 @@ jobs:
     - name: Run unit tests
       run: ./gradlew testDebugUnitTest
 
-    # 可选：上传构建产物到 Actions
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
